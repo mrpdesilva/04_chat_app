@@ -7,13 +7,13 @@ export const signup = async (req, res) => {
         const { fullName, username, password, confirmPassword, gender } = req.body
 
         if (password !== confirmPassword) {
-            return res.status(400).json({ message: "Password and confirm password does not match" })
+            return res.status(400).json({ error: "Password and confirm password does not match" })
         }
 
         const user = await User.findOne({ username })
 
         if (user) {
-            return res.status(400).json({ message: "User already exists" })
+            return res.status(400).json({ error: "User already exists" })
         }
 
         //Hash the password
@@ -50,12 +50,12 @@ export const signup = async (req, res) => {
             })
 
         }else{
-            res.status(500).json({ message: "Error occcured", error })
+            res.status(500).json({ messerrorage: "Error occcured", error })
         }
 
     } catch (error) {
         console.log("Error in signup controller", error.message)
-        res.status(500).json({ message: "Internal Server Error" })
+        res.status(500).json({ error: "Internal Server Error" })
     }
 }
 
@@ -67,7 +67,7 @@ export const login = async (req, res) => {
         const isPasswordCorrect = await bcrypt.compare(password, user?.password || "")
 
         if(!user || !isPasswordCorrect){
-            return res.status(400).json({ message: "Invalid credentials" })
+            return res.status(400).json({ error: "Invalid credentials" })
         }
 
         generateTokenAndSetCookie(user._id, res)
@@ -81,7 +81,7 @@ export const login = async (req, res) => {
         
     } catch (error) {
         console.log("Error in login controller", error.message)
-        res.status(500).json({ message: "Internal Server Error" })
+        res.status(500).json({ error: "Internal Server Error" })
     }
 }
 
@@ -93,6 +93,6 @@ export const logout = async(req, res) => {
         
     } catch (error) {
         console.log("Error in logout controller", error.message)
-        res.status(500).json({ message: "Internal Server Error" })
+        res.status(500).json({ error: "Internal Server Error" })
     }
 }
