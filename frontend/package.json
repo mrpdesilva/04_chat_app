@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
+    "04_chat_app": "file:..",
     "axios": "^1.13.6",
     "daisyui": "^5.5.19",
     "react": "^19.2.0",
