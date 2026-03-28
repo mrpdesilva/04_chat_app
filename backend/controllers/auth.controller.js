@@ -23,8 +23,8 @@ export const signup = async (req, res) => {
         //https://avatar-placeholder.iran.liara.run/
 
         const seed = encodeURIComponent(username.toLowerCase().replace(/\s+/g, "_"));
-        const boyProfilePic = `https://api.dicebear.com/9.x/adventurer/png?seed=${seed}&size=128`;
-        const girlProfilePic = `https://api.dicebear.com/9.x/lorelei/png?seed=${seed}&size=128`;
+        const boyProfilePic = `https://api.dicebear.com/7.x/avataaars/svg?seed=${fullName}&gender=male`;
+        const girlProfilePic = `https://api.dicebear.com/7.x/avataaars/svg?seed=${fullName}&gender=female`;
 
         const newUser = new User({
             fullName,
