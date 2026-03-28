@@ -6,6 +6,12 @@ A real-time full-stack chat application built with the MERN stack and Socket.io.
 
 ---
 
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://zero4-chat-app-257d.onrender.com)
+
+---
+
 ## ✨ Features
 
 - **Real-time messaging** — instant message delivery via Socket.io
